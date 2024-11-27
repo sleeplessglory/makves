@@ -4,7 +4,7 @@ import Sidebar from './components/Sidebar';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
-  <StrictMode>
-    <Sidebar />
-  </StrictMode>,
+    <StrictMode>
+        <Sidebar />
+    </StrictMode>,
 );
