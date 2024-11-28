@@ -1,13 +1,14 @@
 import {useState} from 'react';
 import {ThemeProvider} from 'styled-components';
-import {lightTheme, darkTheme} from './Themes';
-import {Container} from './Container';
+import {lightTheme, darkTheme} from './themes';
+import {Container} from './container';
 import Controls from './Controls';
-import {Logo} from './Logo';
+import {Logo} from './logo';
 import logo from '../assets/logo.png';
-import {Title} from './Title';
-import {Toggler} from './Toggler';
-import Buttons from './Buttons';
+import {Title} from './title';
+import {Toggler} from './toggler';
+import TopButtons from './TopButtons';
+import BottomButtons from './BottomButtons';
 
 type SidebarProps = {
     colour: string,
@@ -15,7 +16,6 @@ type SidebarProps = {
 
 export default function Sidebar({colour}: SidebarProps) {
     const [isExpanded, setIsExpanded] = useState(true);
-
     return (
         <ThemeProvider theme={colour === "light" ? lightTheme : darkTheme}>
             <Container isExpanded={isExpanded}>
@@ -25,7 +25,8 @@ export default function Sidebar({colour}: SidebarProps) {
                 <Toggler onClick={() => setIsExpanded((prev) => !prev)}>
                     {isExpanded ? "<" : ">"}
                 </Toggler>
-                <Buttons />
+                <TopButtons />
+                <BottomButtons />
             </Container>
         </ThemeProvider>
     );
