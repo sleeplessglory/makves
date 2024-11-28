@@ -1,4 +1,7 @@
+import styled from 'styled-components';
+export const Container = styled.nav<{isExpanded: boolean}>`
 
+`;
 /*type ContainerProps = {
     isExpanded: boolean
 }
