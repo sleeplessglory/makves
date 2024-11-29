@@ -5,7 +5,8 @@
     "scripts": {
         "build": "webpack --mode production",
         "dev": "webpack serve --mode development",
-        "lint": "npx eslint . --fix"
+        "lint": "npx eslint . --fix",
+        "test": "npx cypress open"
     },
     "keywords": [],
     "author": "",
@@ -30,6 +31,7 @@
         "@typescript-eslint/parser": "^8.16.0",
         "babel-loader": "^9.2.1",
         "css-loader": "^7.1.2",
+        "cypress": "^13.16.0",
         "eslint": "^9.15.0",
         "eslint-plugin-react": "^7.37.2",
         "eslint-plugin-react-hooks": "^5.0.0",
