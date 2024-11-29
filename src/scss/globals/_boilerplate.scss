@@ -3,7 +3,9 @@ html {
 }
 *, ::before, ::after {
     box-sizing: inherit;
+    transition: all 0.25s ease-in-out;
 }
 body {
     margin: 0;
+    background-color: hsl(214, 32%, 91%);
 }

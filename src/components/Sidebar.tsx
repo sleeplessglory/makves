@@ -12,7 +12,7 @@ import {TopButtonsContainer} from './topButtonsContainer';
 import {TopButtons} from './topButtons';
 import {BottomButtonsContainer} from './bottomButtonsContainer';
 import {BottomButtons} from './bottomButtons';
-import {faHouse, faChartLine, faChartColumn, faWallet, faChartPie, faEnvelope, faSliders, faPhoneVolume} from '@fortawesome/free-solid-svg-icons';
+import {faHouse, faChartLine, faChartColumn, faWallet, faChartPie, faEnvelope, faSliders, faPhoneVolume, faAngleLeft, faAngleRight} from '@fortawesome/free-solid-svg-icons';
 
 type SidebarProps = {
     colour: string
@@ -33,16 +33,17 @@ export default function Sidebar({colour}: SidebarProps) {
         { title: "Settings", icon: faSliders, path: "/settings" },
         { title: "Support", icon: faPhoneVolume, path: "/support" }];
     function goTo(path: string) {
+        console.log(`Going to "${path}"`);
         setActivePath(path);
     }
     return (
         <ThemeProvider theme={currentTheme}>
-            <Container isExpanded={isExpanded} theme={currentTheme}>
+            <Container isExpanded={isExpanded}>
                 <Head>
-                    <Logo src={logo} />
+                    <Logo src={logo} isExpanded={isExpanded} />
                     <Title isExpanded={isExpanded}>TensorFlow</Title>
                     <Toggler onClick={() => setIsExpanded((prev) => !prev)} isExpanded={isExpanded}>
-                        {isExpanded ? "<" : ">"}
+                        <FontAwesomeIcon icon={isExpanded ? faAngleLeft : faAngleRight} />
                     </Toggler>
                 </Head>
                 <TopButtonsContainer>

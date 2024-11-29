@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import {rem} from '../functions';
 export const Container = styled.nav.withConfig({ //React can't process this attribute in HTML for <nav>. I prevented it from reaching the DOM.
-    shouldForwardProp: (isExpanded) => isExpanded !== "isExpanded"})<{isExpanded: boolean}>`
+    shouldForwardProp: (prop) => prop !== "isExpanded"})<{isExpanded: boolean}>`
     display: flex;
     flex-direction: column;
     height: 98vh;
@@ -12,6 +12,5 @@ export const Container = styled.nav.withConfig({ //React can't process this attr
     transform: translateX(${(props) => (props.isExpanded ? "0" : "50%")});
     border: ${rem(7)} solid ${(props) => props.theme.borderContainer};
     border-radius: ${rem(16)};
-    transition: all 0.4s ease-in-out;
     padding: ${rem(25)};
 `;

@@ -4,5 +4,5 @@ export const Head = styled.div`
     justify-content: center;
     align-items: center;
     position: relative;
-    margin-bottom: 7vh;
+    margin-bottom: 3vh;
 `
