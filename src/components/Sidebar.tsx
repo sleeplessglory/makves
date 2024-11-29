@@ -1,12 +1,12 @@
 import {useState} from 'react';
 import {ThemeProvider} from 'styled-components';
-import {lightTheme, darkTheme} from './themes';
-import {Container} from './container';
+import {lightTheme, darkTheme} from './themes.ts';
+import {Container} from './container.ts';
 import {Head} from './head';
-import {Logo} from './logo';
+import {Logo} from './logo.ts';
 import logo from '../assets/logo.png';
-import {Title} from './title';
-import {Toggler} from './toggler';
+import {Title} from './title.ts';
+import {Toggler} from './toggler.ts';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {TopButtonsContainer} from './topButtonsContainer';
 import {TopButtons} from './topButtons';
