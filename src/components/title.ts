@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import {rem} from '../functions';
 export const Title = styled.span.withConfig({ //React can't process this attribute in HTML for <nav>. I prevented it from reaching the DOM.
     shouldForwardProp: (prop) => prop !== "isExpanded"})<{isExpanded: boolean}>`
-    //display: ${(props) => (props.isExpanded ? "inline" : "none")};
     opacity: ${(props) => (props.isExpanded ? 1 : 0)};
     transform: ${(props) => (props.isExpanded ? "translateX(0)" : "translateX(100%)")};
     margin-left: ${rem(12)};

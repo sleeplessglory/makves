@@ -38,17 +38,17 @@ export default function Sidebar({colour}: SidebarProps) {
     }
     return (
         <ThemeProvider theme={currentTheme}>
-            <Container isExpanded={isExpanded}>
+            <Container isExpanded={isExpanded} className="sidebar-container">
                 <Head>
                     <Logo src={logo} isExpanded={isExpanded} />
-                    <Title isExpanded={isExpanded}>TensorFlow</Title>
-                    <Toggler onClick={() => setIsExpanded((prev) => !prev)} isExpanded={isExpanded}>
+                    <Title isExpanded={isExpanded} className="head-title">TensorFlow</Title>
+                    <Toggler onClick={() => setIsExpanded((prev) => !prev)} isExpanded={isExpanded} className="toggler">
                         <FontAwesomeIcon icon={isExpanded ? faAngleLeft : faAngleRight} />
                     </Toggler>
                 </Head>
-                <TopButtonsContainer>
+                <TopButtonsContainer className="top-buttons-container">
                     {topButtons.map((button, index) =>
-                        <TopButtons key={index} isExpanded={isExpanded} 
+                        <TopButtons key={index} isExpanded={isExpanded} className={`top-button-${index}`}
                             onClick={() => {goTo(button.path)}} 
                             isActive={activePath == button.path ? true : false}>
                             <FontAwesomeIcon icon={button.icon} />
@@ -56,9 +56,9 @@ export default function Sidebar({colour}: SidebarProps) {
                         </TopButtons>
                     )}
                 </TopButtonsContainer>
-                <BottomButtonsContainer>
+                <BottomButtonsContainer className="bottom-buttons-container">
                     {bottomButtons.map((button, index) =>
-                        <BottomButtons key={index} isExpanded={isExpanded} 
+                        <BottomButtons key={index} isExpanded={isExpanded} className={`bottom-button-${index}`}
                             onClick={() => {goTo(button.path)}} 
                             isActive={activePath == button.path ? true : false}>
                             <FontAwesomeIcon icon={button.icon} />
