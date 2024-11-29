@@ -9,9 +9,9 @@ export const Container = styled.nav.withConfig({ //React can't process this attr
     font-family: 'Circular Std 2';
     background-color: ${(isExpanded) => isExpanded.theme.sidebarBackground};
     color: ${(isExpanded) => isExpanded.theme.textDefault};
-    width: ${(isExpanded) => (isExpanded ? rem(220) : rem(60))};
+    width: ${(isExpanded) => (isExpanded ? rem(240) : rem(70))};
     border: ${rem(7)} solid ${(isExpanded) => isExpanded.theme.borderContainer};
     border-radius: ${rem(16)};
-    transition: width 0.5s ease;
-    padding: ${rem(16)};
+    transition: width 0.5s ease-in-out;
+    padding: ${rem(25)};
 `;
