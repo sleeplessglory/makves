@@ -38,17 +38,17 @@ export default function Sidebar({colour}: SidebarProps) {
     }
     return (
         <ThemeProvider theme={currentTheme}>
-            <Container isExpanded={isExpanded} data-test="sidebar-container">
+            <Container isExpanded={isExpanded} className="sidebar-container">
                 <Head>
                     <Logo src={logo} isExpanded={isExpanded} />
-                    <Title isExpanded={isExpanded} data-test="head-title">TensorFlow</Title>
-                    <Toggler onClick={() => setIsExpanded((prev) => !prev)} isExpanded={isExpanded} data-test="toggler">
+                    <Title isExpanded={isExpanded} className="head-title">TensorFlow</Title>
+                    <Toggler onClick={() => setIsExpanded((prev) => !prev)} isExpanded={isExpanded} className="toggler">
                         <FontAwesomeIcon icon={isExpanded ? faAngleLeft : faAngleRight} />
                     </Toggler>
                 </Head>
-                <TopButtonsContainer data-test="top-buttons-container">
+                <TopButtonsContainer className="top-buttons-container">
                     {topButtons.map((button, index) =>
-                        <TopButtons key={index} isExpanded={isExpanded} data-test={`top-button-${index}`}
+                        <TopButtons key={index} isExpanded={isExpanded} className={`top-button-${index}`}
                             onClick={() => {goTo(button.path)}} 
                             isActive={activePath == button.path ? true : false}>
                             <FontAwesomeIcon icon={button.icon} />
@@ -56,9 +56,9 @@ export default function Sidebar({colour}: SidebarProps) {
                         </TopButtons>
                     )}
                 </TopButtonsContainer>
-                <BottomButtonsContainer data-test="bottom-buttons-contaier">
+                <BottomButtonsContainer className="bottom-buttons-container">
                     {bottomButtons.map((button, index) =>
-                        <BottomButtons key={index} isExpanded={isExpanded} data-test={`bottom-button-${index}`}
+                        <BottomButtons key={index} isExpanded={isExpanded} className={`bottom-button-${index}`}
                             onClick={() => {goTo(button.path)}} 
                             isActive={activePath == button.path ? true : false}>
                             <FontAwesomeIcon icon={button.icon} />
