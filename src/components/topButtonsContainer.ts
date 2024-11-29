@@ -3,5 +3,5 @@ import {rem} from '../functions';
 export const TopButtonsContainer = styled.div`
     display: flex;
     flex-direction: column;
-    gap: ${rem(16)};
+    gap: ${rem(10)};
 `;

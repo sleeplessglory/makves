@@ -20,6 +20,8 @@ type SidebarProps = {
 
 export default function Sidebar({colour}: SidebarProps) {
     const [isExpanded, setIsExpanded] = useState(true);
+    const [activePath, setActivePath] = useState("");
+    const currentTheme = colour === "light" ? lightTheme : darkTheme;
     const topButtons = [
         { title: "Home", icon: faHouse, path: "/" },
         { title: "Sales", icon: faChartLine, path: "/sales" },
@@ -30,19 +32,24 @@ export default function Sidebar({colour}: SidebarProps) {
     const bottomButtons = [ 
         { title: "Settings", icon: faSliders, path: "/settings" },
         { title: "Support", icon: faPhoneVolume, path: "/support" }];
+    function goTo(path: string) {
+        setActivePath(path);
+    }
     return (
-        <ThemeProvider theme={colour === "light" ? lightTheme : darkTheme}>
-            <Container isExpanded={isExpanded}>
+        <ThemeProvider theme={currentTheme}>
+            <Container isExpanded={isExpanded} theme={currentTheme}>
                 <Head>
                     <Logo src={logo} />
-                    <Title>TensorFlow</Title>
+                    <Title isExpanded={isExpanded}>TensorFlow</Title>
                     <Toggler onClick={() => setIsExpanded((prev) => !prev)} isExpanded={isExpanded}>
                         {isExpanded ? "<" : ">"}
                     </Toggler>
                 </Head>
                 <TopButtonsContainer>
                     {topButtons.map((button, index) =>
-                        <TopButtons key={index}>
+                        <TopButtons key={index} isExpanded={isExpanded} 
+                            onClick={() => {goTo(button.path)}} 
+                            isActive={activePath == button.path ? true : false}>
                             <FontAwesomeIcon icon={button.icon} />
                             <span>{button.title}</span>
                         </TopButtons>
@@ -50,7 +57,9 @@ export default function Sidebar({colour}: SidebarProps) {
                 </TopButtonsContainer>
                 <BottomButtonsContainer>
                     {bottomButtons.map((button, index) =>
-                        <BottomButtons key={index}>
+                        <BottomButtons key={index} isExpanded={isExpanded} 
+                            onClick={() => {goTo(button.path)}} 
+                            isActive={activePath == button.path ? true : false}>
                             <FontAwesomeIcon icon={button.icon} />
                             <span>{button.title}</span>
                         </BottomButtons>

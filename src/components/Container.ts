@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 import {rem} from '../functions';
 export const Container = styled.nav.withConfig({ //React can't process this attribute in HTML for <nav>. I prevented it from reaching the DOM.
-    shouldForwardProp: (isExpanded) => isExpanded !== "isExpanded",
-})<{isExpanded: boolean}>`
+    shouldForwardProp: (isExpanded) => isExpanded !== "isExpanded"})<{isExpanded: boolean}>`
     display: flex;
     flex-direction: column;
-    height: 90vh;
+    height: 98vh;
     font-family: 'Circular Std 2';
-    background-color: ${(isExpanded) => isExpanded.theme.sidebarBackground};
-    color: ${(isExpanded) => isExpanded.theme.textDefault};
-    width: ${(isExpanded) => (isExpanded ? rem(240) : rem(70))};
-    border: ${rem(7)} solid ${(isExpanded) => isExpanded.theme.borderContainer};
+    background-color: ${(props) => props.theme.sidebarBackground};
+    color: ${(props) => props.theme.textDefault};
+    width: ${(props) => (props.isExpanded ? rem(240) : rem(100))};
+    transform: translateX(${(props) => (props.isExpanded ? "0" : "50%")});
+    border: ${rem(7)} solid ${(props) => props.theme.borderContainer};
     border-radius: ${rem(16)};
-    transition: width 0.5s ease-in-out;
+    transition: all 0.4s ease-in-out;
     padding: ${rem(25)};
 `;
