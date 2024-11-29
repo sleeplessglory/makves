@@ -5,6 +5,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 const config = {
     entry: './src/index.tsx',
     output: {
+        publicPath: "/makves/",
         path: path.resolve('build'),
         filename: 'bundle.js',
         clean: true
@@ -53,6 +54,6 @@ const config = {
 	    hot: true,
         open: true
     },
-    mode: 'development',
+    mode: 'production',
 };
 export default config;
